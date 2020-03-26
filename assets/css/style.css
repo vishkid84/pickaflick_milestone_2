@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display:400,700,700i,900|Source+Sans+Pro:300,400,400i,600&display=swap');
+
+body{
+    font-family: 'Source Sans Pro', sans-serif, 'Playfair Display', serif;
+    background-color: #cef4f3;
+}
+
+/* Header */
+.intro-container{
+   margin-top: 100px;
+   /* background-color: #cef4f3;  */
+   display: flex;
+   text-align: center;
+   /* align-items: center; */
+}
+}
+
+#section-header{
+    text-align: center;
+    margin: 25px 0; 
+    padding-top: 25px;
+}
+
+.main-heading{
+    font-family: 'Playfair Display', serif;
+    font-weight: 800;
+}
+
+.dropdown-selector{
+    margin-top: 25px;
+}
+
+.searchBar{
+    text-align: center;
+}
+
+.searchBtnDiv{
+    text-align: center;
+    margin-top: 15px;
+}
