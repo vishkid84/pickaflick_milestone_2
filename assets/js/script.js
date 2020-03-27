@@ -6,17 +6,25 @@ const searchButton = document.getElementById("pickflickBtn");
 
 const url = "http://api.themoviedb.org/3/";
 
-// function movieSections(randomMovie){
-//     // return randomMovie.map(function (movie) {
-//         return `
-        
-//         `
-//     // })
+// function randomMovieGenre(randomMovie){
+    
 // }
-
 
 function pickaflickContainer(randomMovie){
     let movieElement = document.getElementById("randomMovieResult");
+    let movieTitle = randomMovie.title;
+    let movieRating = randomMovie.vote_average;
+    let movieOverview = randomMovie.overview;
+    let movieGenre = randomMovie.genre_ids;
+        
+        // if (document.getElementById("genre").value == "Action"){
+        //     movieGenre.map(function (genre){
+        //         let newGenre = genre === 18;
+        //         alert (newGenre);
+        //         randomMovie = randomMovie.newGenre;
+        //     })
+        // };
+
     pickflickaContent = 
     `<div class="container">
             <div class="row">
@@ -24,9 +32,9 @@ function pickaflickContainer(randomMovie){
                     <div class="media">
                         <img class="mr-3 align-self-start" src="${imgURL + randomMovie.poster_path}">
                         <div class="media-body movie-info">
-                            <h5 class="movie-title">${randomMovie.title}</h5>
-                            <p class="movie-rating">IMDB Rating: ${randomMovie.vote_average}</p>
-                            <p class="movie-rating">${randomMovie.overview}</p>
+                            <h5 class="movie-title">${movieTitle}</h5>
+                            <p class="movie-rating">IMDB Rating: ${movieRating}</p>
+                            <p class="movie-rating">${movieOverview}</p>
                         </div>
                     </div>
                 </div>
@@ -49,9 +57,9 @@ $(searchButton).click(function () {
     })
     .then(function (data) {
         let movies = data.results;
-        const randomMovie = movies[Math.floor(Math.random() * movies.length)];
-        pickaflickContainer(randomMovie);
+        let randomMovie = movies[Math.floor(Math.random() * movies.length)];
         console.log("randomMovie", randomMovie);
+            pickaflickContainer(randomMovie);
     })
     .catch(function (error) {
         console.error("Something has gone wrong");
