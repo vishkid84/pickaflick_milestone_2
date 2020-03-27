@@ -51,9 +51,26 @@ $(searchButton).click(function () {
         return response.json();
     })
     .then(function (data) {
-        let movies = data.results;
+        
+        genrePicker(data);
+        // console.log("randomMovie", randomMovie);
+        pickaflickContainer(randomMovie);
+        alert (randomMovie.genre_ids);
+    })
+    .catch(function (error) {
+        console.error("Something has gone wrong");
+        console.error(error);
+    })
+})
+
+
+function genrePicker(data){
+    let movies = data.results;
         let actionMovies = data.results.filter(function(movies){
                 return movies.genre_ids.includes(28);
+            })
+        let animationMovies = data.results.filter(function(movies){
+                return movies.genre_ids.includes(16);
             })
         let comedyMovies = data.results.filter(function(movies){
                 return movies.genre_ids.includes(35);
@@ -75,6 +92,9 @@ $(searchButton).click(function () {
         if (document.getElementById("genre").value == "Action") {
              randomMovie = actionMovies[Math.floor(Math.random() * actionMovies.length)];
         }
+        else if (document.getElementById("genre").value == "Animation") {
+            randomMovie = animationMovies[Math.floor(Math.random() * animationMovies.length)];
+        }
         else if (document.getElementById("genre").value == "Comedy") {
             randomMovie = comedyMovies[Math.floor(Math.random() * comedyMovies.length)];
         }
@@ -93,13 +113,4 @@ $(searchButton).click(function () {
         else{
             randomMovie = movies[Math.floor(Math.random() * movies.length)];
         }
-        
-        // console.log("randomMovie", randomMovie);
-        pickaflickContainer(randomMovie);
-        // alert (randomMovie.genre_ids);
-    })
-    .catch(function (error) {
-        console.error("Something has gone wrong");
-        console.error(error);
-    })
-})
+}
