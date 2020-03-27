@@ -61,6 +61,15 @@ $(searchButton).click(function () {
         let dramaMovies = data.results.filter(function(movies){
                 return movies.genre_ids.includes(18);
             })
+        let horrorMovies = data.results.filter(function(movies){
+                return movies.genre_ids.includes(27);
+            })
+        let scifiMovies = data.results.filter(function(movies){
+                return movies.genre_ids.includes(878);
+            })
+        let thrillerMovies = data.results.filter(function(movies){
+                return movies.genre_ids.includes(53);
+            })
         
         // Taget the genre dropdown and filter by genre id in the API 
         if (document.getElementById("genre").value == "Action") {
@@ -72,11 +81,20 @@ $(searchButton).click(function () {
         else if (document.getElementById("genre").value == "Drama") {
             randomMovie = dramaMovies[Math.floor(Math.random() * dramaMovies.length)];
         }
+        else if (document.getElementById("genre").value == "Horror") {
+            randomMovie = horrorMovies[Math.floor(Math.random() * horrorMovies.length)];
+        }
+        else if (document.getElementById("genre").value == "SciFi") {
+            randomMovie = scifiMovies[Math.floor(Math.random() * scifiMovies.length)];
+        }
+        else if (document.getElementById("genre").value == "Thriller") {
+            randomMovie = thrillerMovies[Math.floor(Math.random() * thrillerMovies.length)];
+        }
         else{
             randomMovie = movies[Math.floor(Math.random() * movies.length)];
         }
         
-        console.log("randomMovie", randomMovie);
+        // console.log("randomMovie", randomMovie);
         pickaflickContainer(randomMovie);
         // alert (randomMovie.genre_ids);
     })
@@ -85,11 +103,3 @@ $(searchButton).click(function () {
         console.error(error);
     })
 })
-
-// function randomMovieGenre(randomMovie){
-//     if (document.getElementById("genre").value == "Action") {
-//         data.results.filter(function(movies){
-//             return movies.genre_ids.includes(28);
-//         })
-//     }
-// }
