@@ -38,8 +38,13 @@ function pickaflickContainer(randomMovie){
 
 
 $(searchButton).click(function () {
-    // const value = inputValue.value;
-    let randomURL = url + "discover/movie?api_key=a633b83aa763a0e8fad2c80cc66c54b9&language=en-US";
+    // Get random number for page number between 1 and 10,000
+    function pageNumber(min, max) {
+        return Math.floor(Math.random() * (max - min + 1) + min);
+        }
+        var page = pageNumber(1, 500);
+        console.log(page);
+    let randomURL = url + "discover/movie?api_key=a633b83aa763a0e8fad2c80cc66c54b9&language=en-US&page=" + page;
 
     fetch(randomURL)
     .then(function (response) {
@@ -56,7 +61,7 @@ $(searchButton).click(function () {
         let dramaMovies = data.results.filter(function(movies){
                 return movies.genre_ids.includes(18);
             })
-
+        
         // Taget the genre dropdown and filter by genre id in the API 
         if (document.getElementById("genre").value == "Action") {
              randomMovie = actionMovies[Math.floor(Math.random() * actionMovies.length)];
@@ -73,7 +78,7 @@ $(searchButton).click(function () {
         
         console.log("randomMovie", randomMovie);
         pickaflickContainer(randomMovie);
-        alert (randomMovie.genre_ids);
+        // alert (randomMovie.genre_ids);
     })
     .catch(function (error) {
         console.error("Something has gone wrong");
