@@ -48,6 +48,15 @@ body{
     font-weight: 600;
 }
 
+.randomMovieError{
+    text-align: center;
+    margin: 50px;
+    color: #dc3545;
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    font-size: 2rem;
+}
+
 /* Search page */
 .searchBar{
     text-align: center;
