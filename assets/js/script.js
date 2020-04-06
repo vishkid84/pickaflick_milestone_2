@@ -1,17 +1,19 @@
 const APIKey = "a633b83aa763a0e8fad2c80cc66c54b9";
-const imgURL = "https://image.tmdb.org/t/p/w185/";
+const imgURL = "https://image.tmdb.org/t/p/w185";
 
-const searchButton = document.getElementById("pickflickBtn");
-// const searchMovie = document.getElementById("searchMovie");
+const pickflickButton = document.getElementById("pickflickBtn");
+
 
 const url = "http://api.themoviedb.org/3/";
 
+// -----------Pick a flick page------------------
 
 // Render to html
 function pickaflickContainer(randomMovie) {
     let movieElement = document.getElementById("randomMovieResult");
     let movieTitle = randomMovie.title;
     let movieRating = randomMovie.vote_average;
+    let movieReleaseDate = randomMovie.release_date;
     let movieOverview = randomMovie.overview;
     // let movieGenre = randomMovie.genre_ids;
 
@@ -23,8 +25,9 @@ function pickaflickContainer(randomMovie) {
                         <img class="mr-3 align-self-start" src="${imgURL + randomMovie.poster_path}">
                         <div class="media-body movie-info">
                             <h5 class="movie-title">${movieTitle}</h5>
+                            <p class="movie-date">Release Date: ${movieReleaseDate}</p>
                             <p class="movie-rating">IMDB Rating: ${movieRating}</p>
-                            <p class="movie-rating">${movieOverview}</p>
+                            <p class="movie-overview">${movieOverview}</p>
                         </div>
                     </div>
                 </div>
@@ -37,7 +40,7 @@ function pickaflickContainer(randomMovie) {
 }
 
 
-$(searchButton).click(function () {
+$(pickflickButton).click(function () {
     // Get random number for page number between 1 and 10,000
     function pageNumber(min, max) {
         return Math.floor(Math.random() * (max - min + 1) + min);
@@ -133,7 +136,7 @@ function genrePicker(data) {
 
 
 function backgroundChange() {
-    if (document.getElementById("genre").value == "Any genre") {
+    if (document.getElementById("genre").value == "anyGenre") {
         $("body").css("background-color", "#e7e7eb");
     }
     if (document.getElementById("genre").value == "Action") {
@@ -160,5 +163,63 @@ function backgroundChange() {
 }
 
 
+// -----------------------Search a flick page------------------------
+const searchButton = document.getElementById("search");
+const inputValue = document.getElementById("inputValue");
+const searchFilm = document.getElementById("searchMovie");
 
+function filmSections(films){
+    // let filmPoster = imgURL + film.poster_path;
+    // let filmTitle = film.title;
+    // let filmRating = film.vote_average;
+    // let filmReleaseDate = film.release_date;
+    // let filmOverview = film.overview;
+    return films.map(function (film) {
+        return `
+            <img class="mr-3 align-self-start" src="${imgURL + film.poster_path}">
+            <div class="media-body movie-info">
+                <h5 class="movie-title">${film.title}</h5>
+                <p class="movie-date">Release Date: ${film.release_date}</p>
+                <p class="movie-rating">IMDB Rating: ${film.vote_average}</p>
+                <p class="movie-overview">${film.overview}</p>
+            </div>
+            `
+    })
+}
+
+function filmContainer(films){
+    let filmElement = document.getElementById("searchMovie");
+    
+    filmContent = 
+    `<div class="container">
+        <div class="media">
+            ${filmSections(films)}
+        </div>
+    </div>
+    `;
+
+    filmElement.innerHTML = "";
+    filmElement.innerHTML = filmContent;
+    return filmElement;
+}
+
+$(searchButton).click(function () {
+    const value = inputValue.value;
+    let searchURL = url + "search/movie?api_key=a633b83aa763a0e8fad2c80cc66c54b9&query=" + value;
+
+    fetch(searchURL)
+    .then(function (response) {
+        return response.json();
+    })
+    .then(function (data) {
+        let films = data.results;
+        console.log("Films", films);
+        filmContainer(films);
+    })
+    .catch(function (error) {
+        console.error("Something has gone wrong");
+        console.error(error);
+    })
+    console.log("Value: ", value);
+})
 

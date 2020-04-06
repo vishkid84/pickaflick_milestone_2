@@ -162,3 +162,52 @@ function backgroundChange() {
 
 
 
+// Search a flick
+
+
+// function filmSections(films){
+//     return films.map(function (film) {
+//         return `
+//             <img src=${img_URL + film.poster_path} alt="" data-movie-id=${film.id}>
+//         `
+//     })
+// }
+
+// function filmContainer(films){
+//     let filmElement = document.createElement("div");
+//     filmElement.setAttribute("class", "movieTitle")
+//     filmTemplate = 
+//     `
+//     <section class="movieSections">
+//         ${filmSections(films)}
+//     </section>
+    
+//     <div class="content">
+//         <p id="content-close">X</p>
+//     </div>
+//     `
+
+//     filmElement.innerHTML = filmTemplate;
+//     return filmElement;
+// }
+
+// $(searchButton).click(function () {
+//     const value = inputValue.value;
+//     let searchURL = url + "search/movie?api_key=a633b83aa763a0e8fad2c80cc66c54b9&query=" + value;
+
+//     fetch(searchURL)
+//     .then(function (response) {
+//         return response.json();
+//     })
+//     .then(function (data) {
+//         let films = data.results;
+//         console.log("Films", films);
+//         // let filmBlock = filmContainer(films);
+//         // searchFilm.appendChild(filmBlock);
+//     })
+//     .catch(function (error) {
+//         console.error("Something has gone wrong");
+//         console.error(error);
+//     })
+//     console.log("Value: ", value);
+// })
