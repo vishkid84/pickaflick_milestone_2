@@ -184,7 +184,7 @@ function filmSections(films) {
                 </div>
             </div>`
         }
-    })
+    }).join('');
 }
 
 // Toggle display of movie overview
