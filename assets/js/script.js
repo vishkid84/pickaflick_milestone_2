@@ -168,22 +168,23 @@ const searchButton = document.getElementById("search");
 const inputValue = document.getElementById("inputValue");
 const searchFilm = document.getElementById("searchMovie");
 
+
+// Search for each movie
 function filmSections(films){
-    // let filmPoster = imgURL + film.poster_path;
-    // let filmTitle = film.title;
-    // let filmRating = film.vote_average;
-    // let filmReleaseDate = film.release_date;
-    // let filmOverview = film.overview;
     return films.map(function (film) {
-        return `
-            <img class="mr-3 align-self-start" src="${imgURL + film.poster_path}">
-            <div class="media-body movie-info">
-                <h5 class="movie-title">${film.title}</h5>
-                <p class="movie-date">Release Date: ${film.release_date}</p>
-                <p class="movie-rating">IMDB Rating: ${film.vote_average}</p>
-                <p class="movie-overview">${film.overview}</p>
+        if(film.poster_path){
+            return `
+            <div class="movie-results">
+                <img class="mr-3 align-self-start searchMovie-poster" src="${imgURL + film.poster_path}">
+                <div class="media-body searchMovie-info">
+                    <h5 class="movie-title">${film.title}</h5>
+                    <p class="movie-date">Release Date: ${film.release_date}</p>
+                    <p class="movie-rating">IMDB Rating: ${film.vote_average}</p>
+                    <p class="movie-overview">${film.overview}</p>
+                </div>
             </div>
             `
+        }
     })
 }
 
@@ -192,9 +193,7 @@ function filmContainer(films){
     
     filmContent = 
     `<div class="container">
-        <div class="media">
             ${filmSections(films)}
-        </div>
     </div>
     `;
 
@@ -215,6 +214,7 @@ $(searchButton).click(function () {
         let films = data.results;
         console.log("Films", films);
         filmContainer(films);
+        inputValue.value = "";
     })
     .catch(function (error) {
         console.error("Something has gone wrong");

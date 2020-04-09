@@ -70,3 +70,19 @@ body{
     text-align: center;
     margin-top: 15px;
 }
+
+.movie-results{
+    background: #fafafa;
+    width: 30%;
+    display: inline-block;
+    word-break: break-word;
+    margin-right: 20px;
+    min-height: 500px;
+    margin-top: 20px;
+    vertical-align: top;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.searchMovie-poster, .searchMovie-info{
+    padding: 15px;
+}
