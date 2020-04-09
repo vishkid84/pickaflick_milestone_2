@@ -48,7 +48,7 @@ body{
     font-weight: 600;
 }
 
-.randomMovieError{
+.randomMovieError, .searchMovieError{
     text-align: center;
     margin: 50px;
     color: #dc3545;
@@ -60,6 +60,10 @@ body{
 /* Search page */
 #Search{
     margin-top: 75px;
+}
+
+#searchMovie{
+    margin-top: 30px;
 }
 
 #inputValue{
@@ -78,11 +82,43 @@ body{
     word-break: break-word;
     margin-right: 20px;
     min-height: 500px;
-    margin-top: 20px;
+    margin-bottom: 20px;
     vertical-align: top;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
 }
 
-.searchMovie-poster, .searchMovie-info{
+.searchMovie-info{
     padding: 15px;
+}
+
+.searchMovie-poster{
+    width: 65%;
+    padding: 15px;
+}
+
+.infoBtn {
+    background-color: #dc3545;
+    border: none;
+    color: #fafafa;
+    font-size: smaller;
+    cursor: pointer;
+    border-radius: 0;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    bottom: 15px;
+}
+
+.infoBtn:hover {
+  background-color: #bd2130;
+  color: #fafafa;
+}
+
+.movie-overview{
+    margin-bottom: 50px;
+}
+
+#filmOverview{
+    display: none;
 }

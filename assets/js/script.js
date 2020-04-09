@@ -59,8 +59,8 @@ $(pickflickButton).click(function () {
             genrePicker(data);
             if (randomMovie === undefined) {
                 let errorElement = document.getElementById("randomMovieResult");
-                errorElementTemplate = 
-                `<div class="container">
+                errorElementTemplate =
+                    `<div class="container">
                         <div class="row">
                             <div class="col">
                                 <h5 class="randomMovieError">Oops, seems like I tripped. Please try again.</h5>
@@ -169,33 +169,41 @@ const inputValue = document.getElementById("inputValue");
 const searchFilm = document.getElementById("searchMovie");
 
 
-// Search for each movie
-function filmSections(films){
+// Search for each movie and return only if poster available
+function filmSections(films) {
     return films.map(function (film) {
-        if(film.poster_path){
-            return `
-            <div class="movie-results">
+        if (film.poster_path) {
+            return `<div class="movie-results">
                 <img class="mr-3 align-self-start searchMovie-poster" src="${imgURL + film.poster_path}">
                 <div class="media-body searchMovie-info">
                     <h5 class="movie-title">${film.title}</h5>
                     <p class="movie-date">Release Date: ${film.release_date}</p>
                     <p class="movie-rating">IMDB Rating: ${film.vote_average}</p>
-                    <p class="movie-overview">${film.overview}</p>
+                    <p id="filmOverview" class="movie-overview"> ${film.overview}</p>
+                    <button class="btn infoBtn" data-toggle="modal" data-target="#myModal"><i class="fa fa-info"></i></button>
                 </div>
-            </div>
-            `
+            </div>`
         }
     })
 }
 
-function filmContainer(films){
+// Toggle display of movie overview
+$(document).on('click', ".infoBtn", function(){
+    $(this).siblings(".movie-overview").toggle(300);
+})
+
+
+
+function filmContainer(films) {
     let filmElement = document.getElementById("searchMovie");
-    
-    filmContent = 
-    `<div class="container">
+
+    filmContent =
+        `<div class="container">
             ${filmSections(films)}
     </div>
     `;
+
+
 
     filmElement.innerHTML = "";
     filmElement.innerHTML = filmContent;
@@ -207,19 +215,38 @@ $(searchButton).click(function () {
     let searchURL = url + "search/movie?api_key=a633b83aa763a0e8fad2c80cc66c54b9&query=" + value;
 
     fetch(searchURL)
-    .then(function (response) {
-        return response.json();
-    })
-    .then(function (data) {
-        let films = data.results;
-        console.log("Films", films);
-        filmContainer(films);
-        inputValue.value = "";
-    })
-    .catch(function (error) {
-        console.error("Something has gone wrong");
-        console.error(error);
-    })
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            // slice to show only first 9 results
+            let films = data.results.slice(0, 9);
+            console.log("Films", films);
+
+            filmContainer(films);
+            inputValue.value = "";
+
+            
+        })
+        .catch(function (error) {
+            console.error("Something has gone wrong");
+            console.error(error);
+            if (error) {
+                let errorElement = document.getElementById("searchMovie");
+                errorElementTemplate =
+                    `<div class="container">
+                        <div class="row">
+                            <div class="col">
+                                <h5 class="searchMovieError">Something went wrong, please enter the keyword and search again</h5>
+                            </div>
+                        </div>
+                </div>`;
+                errorElement.innerHTML = "";
+                errorElement.innerHTML = errorElementTemplate;
+            }
+        })
     console.log("Value: ", value);
 })
+
+
 
