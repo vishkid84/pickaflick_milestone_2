@@ -3,6 +3,7 @@
 body{
     font-family: 'Source Sans Pro', sans-serif, 'Playfair Display', serif;
     background-color: #e7e7eb;
+    
 }
 
 /* Header */
@@ -12,7 +13,6 @@ body{
    display: flex;
    text-align: center;
    /* align-items: center; */
-}
 }
 
 #section-header{
@@ -57,7 +57,12 @@ body{
     font-size: 2rem;
 }
 
-/* Search page */
+.randomMovie-poster{
+    padding: 15px;
+    width: 20%;
+}
+
+/* ---------------Search page--------------- */
 #Search{
     margin-top: 75px;
 }
@@ -80,7 +85,8 @@ body{
     width: 30%;
     display: inline-block;
     word-break: break-word;
-    margin-right: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
     min-height: 500px;
     margin-bottom: 20px;
     vertical-align: top;
@@ -121,4 +127,13 @@ body{
 
 #filmOverview{
     display: none;
+}
+
+
+/* --------------------New Arrivals page-------------------------- */
+
+.subheading{
+    font-family: 'Playfair Display', serif;
+    color: #676666;
+    margin-bottom: 30px;
 }
