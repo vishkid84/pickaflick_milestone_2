@@ -222,10 +222,25 @@ $(searchButton).click(function () {
             // slice to show only first 9 results
             let films = data.results.slice(0, 9);
             console.log("Films", films);
-
+            
             filmContainer(films);
             inputValue.value = "";
-
+            
+            // If no movie found, return error
+            if(films == undefined || films.length == 0){
+                console.log("no film");
+                let emptyArray = document.getElementById("searchMovie");
+                emptyArrayTemplate =
+                    `<div class="container">
+                        <div class="row">
+                            <div class="col">
+                                <h5 class="searchMovieEmpty">No results found. Please try another movie</h5>
+                            </div>
+                        </div>
+                </div>`;
+                emptyArray.innerHTML = "";
+                emptyArray.innerHTML = emptyArrayTemplate;
+            }
             
         })
         .catch(function (error) {

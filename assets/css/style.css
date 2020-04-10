@@ -48,7 +48,7 @@ body{
     font-weight: 600;
 }
 
-.randomMovieError, .searchMovieError{
+.randomMovieError, .searchMovieError, .searchMovieEmpty{
     text-align: center;
     margin: 50px;
     color: #dc3545;
