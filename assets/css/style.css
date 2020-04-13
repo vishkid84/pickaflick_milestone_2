@@ -151,10 +151,12 @@ body{
 
 /* ----------------------Flick Quiz page-------------------------- */
 
+
 .quiz-container{
     background: #fafafa;
     margin-top: 40px;
     border: 1px solid #dc3545;
+    display: none;
 }
 
 .quiz-heading{
@@ -167,4 +169,14 @@ body{
     padding: 30px;
     background: #e7e7eb;
     margin-bottom: 15px;
+}
+
+.quiz-next-button{
+    margin-bottom: 15px;
+}
+
+.startBtn{
+    margin-top: 30%;
+    padding: 10px;
+    font-size: 1.5rem;
 }

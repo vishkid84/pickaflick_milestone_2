@@ -61,26 +61,40 @@
         </div>
 	</header>
 
+    <section class="startSection">
+        <div class="container start-container">
+            <div class="row">
+                <div class="col-md-8 offset-md-2">
+                    <button type="button" class="btn btn-lg btn-block btn-danger startBtn item-hl">Start</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
 	<section class="quiz">
         <div class="container">
             <div class="row">
                 <div class="col-md-8 offset-md-2 quiz-container">
                     <h3 class="quiz-heading">Guess the movie from the synopsis given</h3>
-                    <p class="question">Queen Poppy and Branch make a surprising discovery — there are 
-                    other Troll worlds beyond their own, and their distinct differences create big clashes
-                    between these various tribes. When a mysterious threat puts all of the Trolls across the land 
-                    in danger, Poppy, Branch, and their band of friends must embark on an epic quest to create 
-                    harmony among the feuding Trolls to unite them against certain doom.</p>
-                    <div class="custom-control custom-radio">
-                        <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
-                        <label id="answer1" class="custom-control-label" for="customRadio1">Toggle this custom radio</label>
-                    </div>
-                    <div class="custom-control custom-radio">
-                        <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                        <label id="answer2" class="custom-control-label" for="customRadio2">Or toggle this other custom radio</label>
-                    </div>
-                    <div>
-                        <button type="button" class="btn btn-danger">Start</button>
+                    <hr>
+                    <p class="questionNum">Question <span>1</span> of 5</p>
+                    <div class="quiz-questions">
+                        <p id="question">
+                            
+                        </p>
+                        <div class="answer">
+                            <div class="custom-control custom-radio">
+                                <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
+                                <label id="answer1" class="custom-control-label" for="customRadio1">Answer 1</label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
+                                <label id="answer2" class="custom-control-label" for="customRadio2">Answer 2</label>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-end row-hl">
+                            <button type="button" class="btn btn-danger quiz-next-button nextButton item-hl">Next</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -93,7 +107,7 @@
 
 
 	<script src="assets/js/script.js"> </script>
-	<!-- <script src="assets/js/test.js">  </script> -->
+	<script src="assets/js/game.js">  </script>
 </body>
 
 </html>
