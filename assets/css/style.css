@@ -3,12 +3,18 @@
 body{
     font-family: 'Source Sans Pro', sans-serif, 'Playfair Display', serif;
     background-color: #e7e7eb;
-    
+    /* background: linear-gradient( to bottom,
+                     rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.8)), 
+                     url("https://cdn.pixabay.com/photo/2017/04/15/23/57/film-2233658_960_720.jpg") no-repeat top center; 
+   -webkit-background-size: cover;
+   -moz-background-size: cover;
+   -o-background-size: cover;
+   background-size: cover; */
 }
 
 /* Header */
 .intro-container{
-   margin-top: 75px;
+   margin-top: 50px;
    /* background-color: #cef4f3;  */
    display: flex;
    text-align: center;
@@ -34,7 +40,7 @@ body{
 
 .media{
     background-color: #ffffff;
-    margin: 60px 0 60px 0;
+    margin: 30px 0 60px 0;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
@@ -46,6 +52,10 @@ body{
     color: #dc3545;
     font-family: 'Playfair Display', serif;
     font-weight: 600;
+}
+
+.movie-date{
+    color: #676666;
 }
 
 .randomMovieError, .searchMovieError, .searchMovieEmpty{
@@ -136,4 +146,25 @@ body{
     font-family: 'Playfair Display', serif;
     color: #676666;
     margin-bottom: 30px;
+}
+
+
+/* ----------------------Flick Quiz page-------------------------- */
+
+.quiz-container{
+    background: #fafafa;
+    margin-top: 40px;
+    border: 1px solid #dc3545;
+}
+
+.quiz-heading{
+     margin-top: 15px;
+     margin-bottom: 30px;
+     font-family: 'Playfair Display', serif;
+}
+
+.custom-radio{
+    padding: 30px;
+    background: #e7e7eb;
+    margin-bottom: 15px;
 }
