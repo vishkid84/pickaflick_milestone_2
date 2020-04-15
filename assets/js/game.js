@@ -2,14 +2,19 @@ $(document).ready(function(){
     
     let questionIndex = 0;
     let questionElement = document.getElementById("question");
-    // let answerElement = document.getElementById("answer");
+    let answerOne = document.getElementById("answer1");
+    let answerTwo = document.getElementById("answer2");
+    let answerElements = [answerOne, answerTwo];
+    let randomAnswerElement = answerElements[Math.floor(Math.random() * answerElements.length)];
     let questions =[
-        {question: "Two people walk hand in hand",
+        {question: "Question 1",
         answers: [
-            {text: "Shutter Island", correct: true},
-            {text: "Shawshank Redemption", correct: false},
+            {answer: "Shutter Island"},
+            {answer: "Shawshank Redemption"},
         ]}
     ]
+    let currentQuestion = questions[questionIndex];
+   
 
     
     $(".startBtn").on("click",function(){
@@ -25,8 +30,19 @@ $(document).ready(function(){
 
     function showQuestion(){
         console.log(questions[questionIndex].question);
-        questionElement.innerHTML = questions[questionIndex].question;
-    }    
+        questionElement.innerHTML = currentQuestion.question;
+    }  
     
+    function showAnswer(){
+        let wrongAnswer = questions[questionIndex].answers;
+        let randomWrongAnswer = wrongAnswer[Math.floor(Math.random() * wrongAnswer.length)]
+        console.log(randomWrongAnswer.answer);
+        randomAnswerElement.innerHTML = randomWrongAnswer.answer;
+        if (randomAnswerElement == answerOne) {
+            console.log(answerTwo.innerHTML = "The other movie")
+            answerTwo.innerHTML = "The other movie";
+        }
+    }
+    showAnswer();
 })
 
