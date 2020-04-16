@@ -5,17 +5,16 @@ $(document).ready(function(){
     let answerOne = document.getElementById("answer1");
     let answerTwo = document.getElementById("answer2");
     let answerElements = [answerOne, answerTwo];
+    // Alternate randomly between two options
     let randomAnswerElement = answerElements[Math.floor(Math.random() * answerElements.length)];
     let questions =[
-        {question: "Question 1",
+        {
         answers: [
             {answer: "Shutter Island"},
             {answer: "Shawshank Redemption"},
         ]}
     ]
-    let currentQuestion = questions[questionIndex];
    
-
     
     $(".startBtn").on("click",function(){
         $(".start-container").hide(300);
@@ -29,6 +28,7 @@ $(document).ready(function(){
     }
 
     function showQuestion(){
+        let currentQuestion = questions[questionIndex];
         console.log(questions[questionIndex].question);
         questionElement.innerHTML = currentQuestion.question;
     }  
@@ -41,6 +41,8 @@ $(document).ready(function(){
         if (randomAnswerElement == answerOne) {
             console.log(answerTwo.innerHTML = "The other movie")
             answerTwo.innerHTML = "The other movie";
+        }else {
+            answerOne.innerHTML = "The other movie";
         }
     }
     showAnswer();
