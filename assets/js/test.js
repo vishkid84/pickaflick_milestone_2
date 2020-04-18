@@ -4,8 +4,8 @@
 // const url = "http://api.themoviedb.org/3/";
 
 $(document).ready(function(){
-
-    let questionIndex = 1;
+    let score = 0;
+    let questionIndex = 0;
     let questionIndexNumber = document.getElementById("questionIndexNumber");
         questionIndexNumber.innerHTML = questionIndex;
     let questionElement = document.getElementById("question");
@@ -24,44 +24,63 @@ $(document).ready(function(){
         ]}
     ]
 
-    function pageNumber(min, max) {
-        return Math.floor(Math.random() * (max - min + 1) + min);
-    }
-    var page = pageNumber(1, 500);
-    console.log(page);
-    let randomURL = url + "discover/movie?api_key=a633b83aa763a0e8fad2c80cc66c54b9&language=en-US&page=" + page;
-    
-
-    fetch(randomURL)
-        .then(function (response) {
-            return response.json();
-        })
-        .then(function (data) {
-            let movies = data.results;
-            showQuestion(movies);
-            showAnswer(movies);
-            nextClick(movies);
-            
-        })
-        .catch(function (error) {
-            console.error("Something has gone wrong");
-            console.error(error);
-        })
-
-    
     $(".startBtn").on("click",function(){
         $(".start-container").hide(300);
         $(".quiz-container").fadeIn(300);
     })
 
-    function showQuestion(movies){
+    $("button").click(function(){
+        function pageNumber(min, max) {
+            return Math.floor(Math.random() * (max - min + 1) + min);
+            }
+            var page = pageNumber(1, 500);
+            console.log(page);
+                
+        let randomURL = url + "discover/movie?api_key=a633b83aa763a0e8fad2c80cc66c54b9&language=en-US&page=" + page;
+        
+
+        fetch(randomURL)
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (data) {
+                let movies = data.results;
+                showQuestionAnswer(movies);
+                nextClick(movies);
+                pageNumber(questionIndexNumber);
+
+                function pageNumber(questionIndexNumber){
+                    questionIndexNumber.innerHTML = questionIndex +=1;
+                    if (questionIndex === 6) {
+                        $(".quiz-container").hide();
+                        let resultElement = document.getElementById("quizResult");
+                        quizResultTemplate =
+                            `<div class="container">
+                                <div class="row">
+                                    <div class="col">
+                                        <h5 class="randomMovieError">You scored the result</h5>
+                                    </div>
+                                </div>
+                        </div>`;
+                        resultElement.innerHTML = "";
+                        resultElement.innerHTML = quizResultTemplate;
+                    }
+                }
+
+            })
+            .catch(function (error) {
+                console.error("Something has gone wrong");
+                console.error(error);
+            })
+    }) 
+
+    
+    function showQuestionAnswer(movies){
         
         let randomMovie = movies[Math.floor(Math.random() * movies.length)];
         console.log(randomMovie.overview);
         questionElement.innerHTML = randomMovie.overview;
-    }  
-    
-    function showAnswer(movies){
+
         // Answer array
         let wrongAnswer = questions[0].answers;
 
@@ -69,7 +88,6 @@ $(document).ready(function(){
         let randomWrongAnswer = wrongAnswer[Math.floor(Math.random() * wrongAnswer.length)]
 
         // get right movie title from json
-        let randomMovie = movies[Math.floor(Math.random() * movies.length)];
         let randomRightAnswer = randomMovie.title;     
 
         console.log(randomWrongAnswer.answer); //returns wrong answer
@@ -81,24 +99,7 @@ $(document).ready(function(){
             answerOne.innerHTML = randomRightAnswer;
         }
         checkAnswer(randomRightAnswer)
-    }
-
-    function nextClick (movies){
-        
-        $(".nextButton").click(function(){
-            pageNumber(questionIndexNumber);
-            showQuestion(movies);
-            showAnswer(movies);
-            clearForms();
-            $(".custom-control").removeClass("rightAnswer");
-            $(".custom-control").removeClass("wrongAnswer");
-            
-        })
-    }
-
-    function pageNumber(questionIndexNumber){
-        questionIndexNumber.innerHTML = questionIndex ++;
-    }
+    }  
 
     function checkAnswer(randomRightAnswer){
         let answerClass = document.getElementById("answer");
@@ -106,6 +107,9 @@ $(document).ready(function(){
             $(answer).click(function(){
                 if (this.innerText == randomRightAnswer) {
                     $(this).addClass("rightAnswer");
+                    $(this).removeClass("wrongAnswer");
+                    score +=5;
+                    console.log(score);
                     // $(this).siblings().css("background-color", "red");
                 } else {
                     $(this).addClass("wrongAnswer");
@@ -114,6 +118,19 @@ $(document).ready(function(){
             })
         });
     }
+
+    function nextClick (movies){
+        
+        $(".nextButton").click(function(){
+            
+            showQuestionAnswer(movies);
+            clearForms();
+            $(".custom-control").removeClass("rightAnswer");
+            $(".custom-control").removeClass("wrongAnswer");
+        })
+    }
+
+    
 
     function clearForms()
     {
