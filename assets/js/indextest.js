@@ -131,6 +131,21 @@ function genrePicker(data) {
     }
 }
 
+function filterByGenre(movieArray, value) {
+    let moviesByGenre = movieArray.filter(function(movies) {
+        return movies.genre_ids.includes(value);
+    });
+    return moviesByGenre;
+}
+
+function updateGenre() {
+    let value = document.getElementById("genre").value;
+
+    let filteredMovies = filterByGenre(data.response, value);
+    console.log(filteredMovies)
+    backgroundChange();
+}
+
 
 function backgroundChange() {
     if (document.getElementById("genre").value == "anyGenre") {
@@ -260,3 +275,12 @@ $(searchButton).click(function () {
     console.log("Value: ", value);
 })
 
+
+
+/**
+ * Get all data on page load and store it globally in this script
+ * Then call the updateGenre function on change in the select box
+ * You'll then be able to pass the data into the filterByGenre function
+ * Make sure to update the values in the option elements
+ * Then you'll be able to pick a movie from the filtered results
+ */

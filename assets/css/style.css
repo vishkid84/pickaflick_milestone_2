@@ -180,3 +180,13 @@ body{
     padding: 10px;
     font-size: 1.5rem;
 }
+
+.rightAnswer{
+    background-color: #28a745;
+    color: #fafafa;
+}
+
+.wrongAnswer{
+    background-color: #df5160;
+    color: #fafafa;
+}

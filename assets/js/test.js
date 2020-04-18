@@ -5,7 +5,9 @@
 
 $(document).ready(function(){
 
-    let questionIndex = 0;
+    let questionIndex = 1;
+    let questionIndexNumber = document.getElementById("questionIndexNumber");
+        questionIndexNumber.innerHTML = questionIndex;
     let questionElement = document.getElementById("question");
     let answerOne = document.getElementById("answer1");
     let answerTwo = document.getElementById("answer2");
@@ -17,6 +19,8 @@ $(document).ready(function(){
         answers: [
             {answer: "Shutter Island"},
             {answer: "Shawshank Redemption"},
+            {answer: "Fast and Furious"},
+            {answer: "Rush Hour"}
         ]}
     ]
 
@@ -26,6 +30,7 @@ $(document).ready(function(){
     var page = pageNumber(1, 500);
     console.log(page);
     let randomURL = url + "discover/movie?api_key=a633b83aa763a0e8fad2c80cc66c54b9&language=en-US&page=" + page;
+    
 
     fetch(randomURL)
         .then(function (response) {
@@ -35,6 +40,8 @@ $(document).ready(function(){
             let movies = data.results;
             showQuestion(movies);
             showAnswer(movies);
+            nextClick(movies);
+            
         })
         .catch(function (error) {
             console.error("Something has gone wrong");
@@ -56,7 +63,7 @@ $(document).ready(function(){
     
     function showAnswer(movies){
         // Answer array
-        let wrongAnswer = questions[questionIndex].answers;
+        let wrongAnswer = questions[0].answers;
 
         // get random wrong movie from array
         let randomWrongAnswer = wrongAnswer[Math.floor(Math.random() * wrongAnswer.length)]
@@ -75,21 +82,45 @@ $(document).ready(function(){
         }
         checkAnswer(randomRightAnswer)
     }
-    
+
+    function nextClick (movies){
+        
+        $(".nextButton").click(function(){
+            pageNumber(questionIndexNumber);
+            showQuestion(movies);
+            showAnswer(movies);
+            clearForms();
+            $(".custom-control").removeClass("rightAnswer");
+            $(".custom-control").removeClass("wrongAnswer");
+            
+        })
+    }
+
+    function pageNumber(questionIndexNumber){
+        questionIndexNumber.innerHTML = questionIndex ++;
+    }
+
     function checkAnswer(randomRightAnswer){
         let answerClass = document.getElementById("answer");
         Array.from(answerClass.children).forEach(answer => {
             $(answer).click(function(){
                 if (this.innerText == randomRightAnswer) {
-                    $(this).css("background-color", "green");
-                    $(this).siblings().css("background-color", "red");
+                    $(this).addClass("rightAnswer");
+                    // $(this).siblings().css("background-color", "red");
                 } else {
-                    $(this).css("background-color", "red");
-                    $(this).siblings().css("background-color", "green");
+                    $(this).addClass("wrongAnswer");
+                    // $(this).siblings().css("background-color", "green");
                 }
             })
         });
     }
+
+    function clearForms()
+    {
+        $(':input').not(':button, :submit, :reset, :hidden, :checkbox, :radio').val('');
+        $(':checkbox, :radio').prop('checked', false);
+    }
+
 })
 
     
