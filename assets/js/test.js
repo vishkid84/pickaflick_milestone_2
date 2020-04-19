@@ -14,15 +14,7 @@ $(document).ready(function(){
     let answerElements = [answerOne, answerTwo];
     // Alternate randomly between two options
     let randomAnswerElement = answerElements[Math.floor(Math.random() * answerElements.length)];
-    let questions =[
-        {question: "Some movie",
-        answers: [
-            {answer: "Shutter Island"},
-            {answer: "Shawshank Redemption"},
-            {answer: "Fast and Furious"},
-            {answer: "Rush Hour"}
-        ]}
-    ]
+   
 
     $(".startBtn").on("click",function(){
         $(".start-container").hide(300);
@@ -54,6 +46,7 @@ $(document).ready(function(){
                     if (questionIndex === 6) {
                         $(".quiz-container").hide();
                         $(".scoreContainer").show();
+                        $(".reset-quiz-container").show();
                     }
                 }
 
@@ -72,15 +65,15 @@ $(document).ready(function(){
         questionElement.innerHTML = randomMovie.overview;
 
         // Answer array
-        let wrongAnswer = questions[0].answers;
+        // let wrongAnswer = questions[0].answers;
 
         // get random wrong movie from array
-        let randomWrongAnswer = wrongAnswer[Math.floor(Math.random() * wrongAnswer.length)]
+        let randomWrongAnswer = movies[Math.floor(Math.random() * movies.length)];
 
         // get right movie title from json
         let randomRightAnswer = randomMovie.title;     
 
-        randomAnswerElement.innerHTML = randomWrongAnswer.answer; //returns wrong answer
+        randomAnswerElement.innerHTML = randomWrongAnswer.title; //returns wrong answer
         if (randomAnswerElement == answerOne) {
             answerTwo.innerHTML = randomRightAnswer;
         }else {
@@ -100,10 +93,8 @@ $(document).ready(function(){
                     console.log(score);
                     let scoreValue = document.getElementById("scoreResult");
                         scoreValue.innerHTML = score;
-                    // $(this).siblings().css("background-color", "red");
                 } else {
                     $(this).addClass("wrongAnswer");
-                    // $(this).siblings().css("background-color", "green");
                 }
             })
         });
@@ -117,7 +108,9 @@ $(document).ready(function(){
         })
     }
 
-    
+    $(".resetQuizLink").click(function(){
+        $(location).attr('href',"flickquiz.html");
+    })
 
     function clearForms()
     {
@@ -126,6 +119,7 @@ $(document).ready(function(){
     }
 
 })
+
 
     
 

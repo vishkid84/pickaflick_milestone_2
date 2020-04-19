@@ -3,7 +3,7 @@ $(document).ready(function(){
     function newArrivalSections(arrivals) {
     return arrivals.map(function (arrival) {
             if (arrival.poster_path) {
-                return `<div class="movie-results">
+                return `<div class="col-md-3 movie-results">
                     <img class="mr-3 align-self-start searchMovie-poster" src="${imgURL + arrival.poster_path}">
                     <div class="media-body searchMovie-info">
                         <h5 class="movie-title">${arrival.title}</h5>
@@ -22,7 +22,7 @@ $(document).ready(function(){
     let newArrivalElement = document.getElementById("newArrivals");
 
     newArrivalContent =
-        `<div class="container">
+        `<div class="container filmContenContainer">
             ${newArrivalSections(arrivals)}
         </div>`;
 
