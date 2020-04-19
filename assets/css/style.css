@@ -190,3 +190,19 @@ body{
     background-color: #df5160;
     color: #fafafa;
 }
+
+.scoreContainer{
+    display: none;
+}
+
+.score{
+    text-align: center;
+    margin: 120px 0;
+    padding: 50px;
+    border-radius: 10px;
+    background: #dc3545;
+    color: #fafafa;
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    font-size: 2rem;
+}

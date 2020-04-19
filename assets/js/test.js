@@ -46,24 +46,14 @@ $(document).ready(function(){
             .then(function (data) {
                 let movies = data.results;
                 showQuestionAnswer(movies);
-                nextClick(movies);
+                nextClick();
                 pageNumber(questionIndexNumber);
 
                 function pageNumber(questionIndexNumber){
                     questionIndexNumber.innerHTML = questionIndex +=1;
                     if (questionIndex === 6) {
                         $(".quiz-container").hide();
-                        let resultElement = document.getElementById("quizResult");
-                        quizResultTemplate =
-                            `<div class="container">
-                                <div class="row">
-                                    <div class="col">
-                                        <h5 class="randomMovieError">You scored the result</h5>
-                                    </div>
-                                </div>
-                        </div>`;
-                        resultElement.innerHTML = "";
-                        resultElement.innerHTML = quizResultTemplate;
+                        $(".scoreContainer").show();
                     }
                 }
 
@@ -74,11 +64,11 @@ $(document).ready(function(){
             })
     }) 
 
+
     
     function showQuestionAnswer(movies){
         
         let randomMovie = movies[Math.floor(Math.random() * movies.length)];
-        console.log(randomMovie.overview);
         questionElement.innerHTML = randomMovie.overview;
 
         // Answer array
@@ -90,10 +80,8 @@ $(document).ready(function(){
         // get right movie title from json
         let randomRightAnswer = randomMovie.title;     
 
-        console.log(randomWrongAnswer.answer); //returns wrong answer
         randomAnswerElement.innerHTML = randomWrongAnswer.answer; //returns wrong answer
         if (randomAnswerElement == answerOne) {
-            console.log(answerTwo.innerHTML = randomRightAnswer)
             answerTwo.innerHTML = randomRightAnswer;
         }else {
             answerOne.innerHTML = randomRightAnswer;
@@ -110,6 +98,8 @@ $(document).ready(function(){
                     $(this).removeClass("wrongAnswer");
                     score +=5;
                     console.log(score);
+                    let scoreValue = document.getElementById("scoreResult");
+                        scoreValue.innerHTML = score;
                     // $(this).siblings().css("background-color", "red");
                 } else {
                     $(this).addClass("wrongAnswer");
@@ -119,11 +109,8 @@ $(document).ready(function(){
         });
     }
 
-    function nextClick (movies){
-        
+    function nextClick (){
         $(".nextButton").click(function(){
-            
-            showQuestionAnswer(movies);
             clearForms();
             $(".custom-control").removeClass("rightAnswer");
             $(".custom-control").removeClass("wrongAnswer");
