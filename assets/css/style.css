@@ -176,11 +176,18 @@ body{
      font-family: 'Playfair Display', serif;
 }
 
-.custom-radio{
+.answer-selection{
+    padding: 30px 15px;
+    background: #e7e7eb;
+    margin-bottom: 15px;
+    cursor: pointer;
+}
+
+/* .custom-radio{
     padding: 30px;
     background: #e7e7eb;
     margin-bottom: 15px;
-}
+} */
 
 .quiz-next-button{
     margin-bottom: 15px;

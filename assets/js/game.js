@@ -87,7 +87,7 @@ $(document).ready(function(){
                     if (this.innerText == randomRightAnswer) {
                         $(this).addClass("rightAnswer");
                         $(this).removeClass("wrongAnswer");
-                        score +=5;
+                        score +=1;
                         console.log(score);
                         let scoreValue = document.getElementById("scoreResult");
                             scoreValue.innerHTML = score;
@@ -101,8 +101,8 @@ $(document).ready(function(){
         function nextClick (){
             $(".nextButton").click(function(){
                 clearForms();
-                $(".custom-control").removeClass("rightAnswer");
-                $(".custom-control").removeClass("wrongAnswer");
+                $(".answer-selection").removeClass("rightAnswer");
+                $(".answer-selection").removeClass("wrongAnswer");
             })
         }
 
