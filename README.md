@@ -1,35 +1,122 @@
-<img src="https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png" style="margin: 0;">
+# Pickaflick-milestone-project
 
-Welcome vishkid84,
+This is a site intended to all movie lovers who have a hard time picking what movie to watch. The site generates a random movie based on the genre selected.
+All the movies generated have a rating of 5.5 or more. The site also has a search page to search for a movie, a new arrivals page to see the movies running in theatres now
+and a movie quiz page to test your movie knowledge. 
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. You can safely delete this README.md file, or change it for your own project.
+You can find the deployed site [here](https://vishkid84.github.io/pickaflick_milestone_2/)
 
-## Gitpod Reminders
+## UX
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+### User stories
 
-`python3 -m http.server`
+As a movie buff, it is a challenge to pick a movie to watch. I sometimes spend ages looking at movie rating and reviews before I pick a movie.<br>
+It would be nice have an interactive movie app instead of generating just movie results I search for.
 
-A blue button should appear to click: *Make Public*,
+### Strategy
 
-Another blue button should appear to click: *Open Browser*.
+The aim is to create an all purpose website app which interests people who spent their time watching a lot of movies. 
+The main purpose of the website though is to help them pick a movie to watch, hence the site name pick-a-flick. 
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+### Scope
 
-A blue button should appear to click: *Make Public*,
+As a movie lover myself, it is sometimes really hard to choose a movie to watch. I reached out to friends and other people who have similar interests, their experience was not much different.  
+On further research among those groups, I identified two main factors by which they filter movies to watch - genre and movie rating. 
+Those people who were really big fans of movies also spend time playing games related to movies. 
+Based on the above and further research on other movie databases, I decided to add 4 features - Main page to generate random movie, a search page, 
+new arrivals page and movie quiz.
 
-Another blue button should appear to click: *Open Browser*.
+### Structure
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the backend lessons.
+Structuring was quite straight forward for me in this case. The home page would be the pick-a-flick page to generate random movie. This shoud include options to choose the genre. 
+Search page was found to be necessary in a database, so that would come second. 
+The new arrivals also produce results of movies so I decided to keep that as third and finally move into the quiz game. 
 
-## Updates Since The Instructional Video
+### Skeleton
 
-We continually tweak and adjust this template to help give you the best experience. Here are the updates since the original video was made:
+You can see the wireframes below:
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+[Desktop view]()<br>
+[Mobile view]()<br>
+[Wireframe with color scheme]()<br>
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+### Surface
 
---------
+The website was created in an easily navigatable manner with the 4 sections separated as 4 different pages.
+The original idea was to include filter for genre and rating for the home page but the API did not have an option to return all the movies at once and 
+choose from that. Instead returns page with an array of 20 results. So to pick a random movie, I randomized the page number. To get better results from 
+fewer number of movies, I did not include filter by rating. Instead decided to filter by average rating. From my research with friends and web, average rating 
+was considered to be 6 for most genre but horror usually seems to have lower rating. So to be fair, the average rating was concluded to be 5.5. 
+Similar results container was added for the results in all the pages. 
+A simple quiz container layout was added where right answer turns green and wrong changes to red background. The quiz question is the movie overview of a random movie
+from the API, right answer shows the movie name and wrong answer returns another random movie name.
 
-Happy coding!
+## Features
+
+The landing page opens with my background image and text with my name and role. 
+
+There are 4 sections in the navbar:
+1. Pick a flick: A page that returns a random movie which can be filtered by genre. All the movies generated would have a rating of 5.5 or more.
+2. Search a flick: Returns top 9 results based on the keyword searched. More than 9 seemded too much for a search result to scroll through. 
+3. New arrivals: Returns 15 of the movies running in theatres in Ireland.
+4. Flick quiz: A quiz game to guess the movie from the synopsis provided.
+
+### Existing Features
+- Feature 1 - Responsive layout
+- Feature 2 - The background changes with the selection of each genre for a basic differentation and to change the mood a bit. 
+
+### Features Left to Implement
+- For future, I plan to add a background instead of the plain color background. 
+- Currently, the site does not work IE as Fetch funcion does not work in IE. I plan to add that functionality at a later stage. 
+
+## Technologies Used
+
+HTML <br>
+CSS <br>
+Google fonts <br>
+Bootstrap <br>
+Javascript <br>
+jQuery <br>
+APIs
+
+## Testing
+
+All the links in the site have been tested manually and found to be working successfully. 
+
+Error message has been added if no movie is found in the pick-a-flick page. 
+Error message has been added if no keyword entered in the search bar in the Search a movie page. 
+Error message has been added if no movie returns with the entered keyword in the Search a movie page. 
+
+The quiz score has a glitch, the score keeps adding if the right answer is clicked more than once. This is to be fixed at a later stage. 
+
+The website is created to be responsive, the way the results appear is different in mobile, tablet and desktop. 
+
+The website has been tested across different browsers (Chrome, Firefox, Opera, Microsoft Edge). The site does not work currently in IE. 
+Tested across multiple devices using devices directly where available and by using browserstack.com for others.
+
+Validated html and css with W3C validator to make sure there are no errors.
+
+## Deployment
+
+The site was written in gitpod and pushed into the GitHub repository. This is hosted using GitHub, deployed directly from the master branch. 
+To deploy the website from GitHub, I went into the settings section --> GitHub Pages and selected the master branch to publish the site. 
+The deployed site will update automatically upon new commits to the master branch.
+
+To run this locally, open the command prompt or terminal. Then paste this into it: 'git clone https://vishkid84.github.io/pickaflick_milestone_2.git'
+
+## Credits
+
+### Content
+
+All the text content were written by me.
+All the results are generated from The Movie Database API [https://developers.themoviedb.org/3/getting-started/introduction]
+
+### Media
+
+The posters of the movies generated from The Movie Database API [https://developers.themoviedb.org/3/getting-started/introduction]
+
+### Acknowledgements
+
+The API used is The Movie Database API [https://developers.themoviedb.org/3/getting-started/introduction]. <br>
+I had to refer various sources sometimes to find solutions for Javascript, mainly API and quiz tutorials in YouTube, stackoverflow for randomize and filter functions,
+w3schools for few styles and scripts.  

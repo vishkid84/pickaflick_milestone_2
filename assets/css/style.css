@@ -1,24 +1,19 @@
 @import url('https://fonts.googleapis.com/css?family=Playfair+Display:400,700,700i,900|Source+Sans+Pro:300,400,400i,600&display=swap');
 
+
+/* -----------General---------- */
 body{
     font-family: 'Source Sans Pro', sans-serif, 'Playfair Display', serif;
     background-color: #e7e7eb;
-    /* background: linear-gradient( to bottom,
-                     rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.8)), 
-                     url("https://cdn.pixabay.com/photo/2017/04/15/23/57/film-2233658_960_720.jpg") no-repeat top center; 
-   -webkit-background-size: cover;
-   -moz-background-size: cover;
-   -o-background-size: cover;
-   background-size: cover; */
 }
 
+
+/*---------------------Pickaflick page--------------- */
 /* Header */
 .intro-container{
    margin-top: 50px;
-   /* background-color: #cef4f3;  */
-   display: flex;
+   /* display: flex; */
    text-align: center;
-   /* align-items: center; */
 }
 
 #section-header{

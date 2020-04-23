@@ -170,7 +170,7 @@ const searchFilm = document.getElementById("searchMovie");
 function filmSections(films) {
     return films.map(function (film) {
         if (film.poster_path) {
-            return `<div class="col-md-3 movie-results">
+            return `<div class="col-md-4 col-lg-3 movie-results">
                 <img class="mr-3 align-self-start searchMovie-poster" src="${imgURL + film.poster_path}">
                 <div class="media-body searchMovie-info">
                     <h5 class="movie-title">${film.title}</h5>
@@ -260,3 +260,4 @@ $(searchButton).click(function () {
     console.log("Value: ", value);
 })
 
+// ------------------General------------------
