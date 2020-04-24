@@ -100,7 +100,6 @@ $(document).ready(function(){
 
         function nextClick (){
             $(".nextButton").click(function(){
-                clearForms();
                 $(".answer-selection").removeClass("rightAnswer");
                 $(".answer-selection").removeClass("wrongAnswer");
             })
@@ -111,15 +110,7 @@ $(document).ready(function(){
             $(location).attr('href',"flickquiz.html");
         })
 
-        $(".custom-radio").click(function(){
-            $(this).children().prop("checked", true);
-        });
-        
-        function clearForms()
-        {
-            $(':input').not(':button, :submit, :reset, :hidden, :checkbox, :radio').val('');
-            $(':checkbox, :radio').prop('checked', false);
-        }
+
     }) 
 
 })

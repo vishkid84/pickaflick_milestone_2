@@ -260,4 +260,3 @@ $(searchButton).click(function () {
     console.log("Value: ", value);
 })
 
-// ------------------General------------------
