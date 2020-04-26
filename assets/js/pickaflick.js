@@ -131,24 +131,3 @@ function genrePicker(data) {
     }
 }
 
-// Change background on selection of different genre
-function backgroundChange() {
-    if (document.getElementById("genre").value == "anyGenre") {
-        $("body").css("background-color", "#e7e7eb");
-    }
-    if (document.getElementById("genre").value == "Action") {
-        $("body").css("background-color", "#bfcee1");
-    } else if (document.getElementById("genre").value == "Comedy") {
-        $("body").css("background-color", "#ffffba");
-    } else if (document.getElementById("genre").value == "Drama") {
-        $("body").css("background-color", "#ff9aa2");
-    } else if (document.getElementById("genre").value == "Horror") {
-        $("body").css("background-color", "#b5ead7");
-    } else if (document.getElementById("genre").value == "SciFi") {
-        $("body").css("background-color", "#d8d8d8");
-    } else if (document.getElementById("genre").value == "Thriller") {
-        $("body").css("background-color", "#ffdac1");
-    } else {
-        $("body").css("background-color", "#e7e7eb");
-    }
-}
