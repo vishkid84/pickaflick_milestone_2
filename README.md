@@ -62,7 +62,7 @@ There are 4 sections in the navbar:
 
 ### Existing Features
 - Feature 1 - Responsive layout
-- Feature 2 - The background changes with the selection of each genre for a basic differentation and to change the mood a bit. 
+- Feature 2 - Interactive website 
 
 ### Features Left to Implement
 - For future, I plan to add a background instead of the plain color background. 
