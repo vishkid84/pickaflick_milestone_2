@@ -36,7 +36,7 @@ The new arrivals also produce results of movies so I decided to keep that as thi
 
 You can see the wireframes saved as pdf below:
 
-[Wireframe]()<br>
+[Wireframe](https://github.com/vishkid84/pickaflick_milestone_2/blob/master/assets/wireframes/Pickaflick_wireframe.pdf)<br>
 
 
 ### Surface
@@ -79,7 +79,10 @@ jQuery <br>
 APIs
 
 ## Testing
-I used an [Excel]() to update my testing. I have pasted a screenshot of that below. 
+I used an [Excel](https://github.com/vishkid84/pickaflick_milestone_2/blob/master/assets/Testing/Testing%20Excel.xlsx) to update my testing. 
+I have pasted a screenshot of that below. 
+
+![Test matrix](https://github.com/vishkid84/pickaflick_milestone_2/blob/master/assets/Testing/Test_screenshot.png)
 
 #### Links tested
 All the links in the site have been tested manually and found to be working successfully.  
@@ -126,6 +129,8 @@ The posters of the movies generated from The Movie Database API [https://develop
 
 ### Acknowledgements
 
-The API used is The Movie Database API [https://developers.themoviedb.org/3/getting-started/introduction]. <br>
+The API used is [The Movie Database API](https://developers.themoviedb.org/3/getting-started/introduction). <br>
 I had to refer various sources sometimes to find solutions for Javascript, mainly API, TMDB and quiz tutorials in YouTube, stackoverflow for randomize and filter functions,
 w3schools for few styles and scripts.  
+Main sources are [movie database tutorial](https://www.youtube.com/watch?v=mWg2udweauY), [randomize](https://stackoverflow.com/questions/1527803/generating-random-whole-numbers-in-javascript-in-a-specific-range)
+and [filter](https://www.w3schools.com/jsref/jsref_filter.asp).
