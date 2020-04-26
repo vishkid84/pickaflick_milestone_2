@@ -34,11 +34,10 @@ The new arrivals also produce results of movies so I decided to keep that as thi
 
 ### Skeleton
 
-You can see the wireframes below:
+You can see the wireframes saved as pdf below:
 
-[Desktop view]()<br>
-[Mobile view]()<br>
-[Wireframe with color scheme]()<br>
+[Wireframe]()<br>
+
 
 ### Surface
 
@@ -118,5 +117,5 @@ The posters of the movies generated from The Movie Database API [https://develop
 ### Acknowledgements
 
 The API used is The Movie Database API [https://developers.themoviedb.org/3/getting-started/introduction]. <br>
-I had to refer various sources sometimes to find solutions for Javascript, mainly API and quiz tutorials in YouTube, stackoverflow for randomize and filter functions,
+I had to refer various sources sometimes to find solutions for Javascript, mainly API, TMDB and quiz tutorials in YouTube, stackoverflow for randomize and filter functions,
 w3schools for few styles and scripts.  
