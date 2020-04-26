@@ -10,8 +10,8 @@ You can find the deployed site [here](https://vishkid84.github.io/pickaflick_mil
 
 ### User stories
 
-As a movie buff, it is a challenge to pick a movie to watch. I sometimes spend ages looking at movie rating and reviews before I pick a movie.<br>
-It would be nice have an interactive movie app instead of generating just movie results I search for.
+- As a movie buff, it is a challenge to pick a movie to watch. I sometimes spend ages looking at movie rating and reviews before I pick a movie.<br>
+- It would be nice have an interactive movie app instead of generating just movie results I search for.
 
 ### Strategy
 
@@ -79,21 +79,31 @@ jQuery <br>
 APIs
 
 ## Testing
+I used an [Excel]() to update my testing. I have pasted a screenshot of that below. 
 
-All the links in the site have been tested manually and found to be working successfully. 
+#### Links tested
+All the links in the site have been tested manually and found to be working successfully.  
 
-Error message has been added if no movie is found in the pick-a-flick page. 
-Error message has been added if no keyword entered in the search bar in the Search a movie page. 
-Error message has been added if no movie returns with the entered keyword in the Search a movie page. 
+#### Validations
+Validated html and css with W3C validator and JS with beautifytools.com.
 
-The quiz score has a glitch, the score keeps adding if the right answer is clicked more than once. This is to be fixed at a later stage. 
-
+#### Responsiveness
 The website is created to be responsive, the way the results appear is different in mobile, tablet and desktop. 
+Tested across multiple devices using devices directly where available and by using https://www.browserstack.com/ for others.
 
-The website has been tested across different browsers (Chrome, Firefox, Opera, Microsoft Edge). The site does not work currently in IE. 
-Tested across multiple devices using devices directly where available and by using browserstack.com for others.
+#### Browser compatibility
+The website has been tested across different browsers (Chrome, Firefox, Opera, Microsoft Edge). The site does not work properly in IE as the JS fetch 
+function is not compatible in IE but since usage share of IE as per StatCounter as per Oct 2019 is less than 2%, I dont find this much as a problem. 
 
-Validated html and css with W3C validator to make sure there are no errors.
+#### Noted errors/issues
+Error message has been added if no movie is found in the pick-a-flick page. <br>
+Error message has been added if no keyword entered in the search bar in the Search a movie page. <br>
+Error message has been added if no movie returns with the entered keyword in the Search a movie page. <br>
+
+The quiz score has two glitches: 
+1. The score keeps adding if the right answer is clicked more than once. This is to be fixed at a later stage. 
+2. Rare chance that the same answer appears for both options but score adds when clicked on either. So retained as such for now but to be fixed at a later stage.
+
 
 ## Deployment
 
