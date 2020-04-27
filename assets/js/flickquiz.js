@@ -12,6 +12,7 @@ $(document).ready(function() {
     // Quiz to appear with click of start button
     $(".startBtn").on("click", function() {
         $(".start-container").hide(300);
+        $(".main-heading").hide(300);
         $(".quiz-container").fadeIn(300);
     });
 

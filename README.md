@@ -41,12 +41,15 @@ You can see the wireframes saved as pdf below:
 
 ### Surface
 
-The website was created in an easily navigatable manner with the 4 sections separated as 4 different pages.<br>
+The website is created in an easily navigatable manner with the 4 sections separated as 4 different pages.<br><br>
 The original idea for 'pick a flick' page was to include filter for genre and rating for the home page but the API did not have an option to return all the movies at once and 
 choose from that. Instead returns page with an array of 20 results. So to pick a random movie, I randomized the page number. To get better results from 
 fewer number of movies, I did not include filter by rating. Instead decided to filter by average rating. From my research with friends and web, average rating 
 was considered to be 6 for most genre but horror usually seems to have lower rating. So to be fair, the average rating was concluded to be 5.5. <br>
-Consistently styled movie results container was added for the results in all the pages. <br>
+A feature of changing background on selection of different genres was originally included but since there are no proper shades that can be
+associated with different genre, it did not add much value to the site. So that was scrapped and a darker background 
+was added which made the site much more cleaner and sophisticated. <br> <br>
+Consistently styled movie results container was added for the results in all the pages. <br><br>
 For the quiz page, a simple quiz container layout was added where right answer turns green and wrong changes to red background. The quiz question is the movie overview of a random movie
 from the API, right answer shows the movie name and wrong answer returns another random movie name.
 
@@ -54,7 +57,7 @@ from the API, right answer shows the movie name and wrong answer returns another
 
 There are 4 sections in the navbar:
 1. Pick a flick: A page that returns a random movie which can be filtered by genre. All the movies generated would have a rating of 5.5 or more.
-2. Search a flick: Returns top 9 results based on the keyword searched. More than 9 seemded too much for a search result to scroll through. 
+2. Search a flick: Returns top 9 results based on the keyword searched. More than 9 seemed too much for a search result to scroll through. 
 3. New arrivals: Returns 15 of the movies running in theatres in Ireland.
 4. Flick quiz: A quiz game to guess the movie from the synopsis provided.
 
@@ -93,15 +96,17 @@ The website is created to be responsive, the way the results appear is different
 Tested across multiple devices using devices directly where available and by using https://www.browserstack.com/ for others.
 
 #### Browser compatibility
-The website has been tested across different browsers (Chrome, Firefox, Opera, Microsoft Edge). The site does not work properly in IE as the JS fetch 
-function is not compatible in IE but since usage share of IE as per StatCounter as per Oct 2019 is less than 2%, I dont find this much as a problem. 
+The website has been tested across different browsers (Chrome, Firefox, Opera, Microsoft Edge). 
+The site does not work properly in IE as the JS fetch function is not compatible in IE but since this is intended
+as a commercial website and usage share of IE as per StatCounter as on Oct 2019 is less than 2%, 
+I dont find this much as a problem but a disclaimer about the non-functionality in IE has been added to the home page. 
 
 #### Noted errors/issues
 Error message has been added if no movie is found in the pick-a-flick page. <br>
 Error message has been added if no keyword entered in the search bar in the Search a movie page. <br>
 Error message has been added if no movie returns with the entered keyword in the Search a movie page. <br>
 
-The quiz score has two glitches: 
+The quiz has two glitches: 
 1. The score keeps adding if the right answer is clicked more than once. This is to be fixed at a later stage. 
 2. Rare chance that the same answer appears for both options but score adds when clicked on either. So retained as such for now but to be fixed at a later stage.
 
@@ -130,10 +135,5 @@ The posters of the movies generated from The Movie Database API [https://develop
 The API used is [The Movie Database API](https://developers.themoviedb.org/3/getting-started/introduction). <br>
 I had to refer various sources sometimes to find solutions for Javascript, mainly API, TMDB and quiz tutorials in YouTube, stackoverflow for randomize and filter functions,
 w3schools for few styles and scripts.  
-<<<<<<< HEAD
 Main sources are [Search tutorial](https://www.youtube.com/watch?v=mWg2udweauY), [randomize](https://stackoverflow.com/questions/1527803/generating-random-whole-numbers-in-javascript-in-a-specific-range)
 and [filter](https://www.w3schools.com/jsref/jsref_filter.asp).
-=======
-Main sources are [movie database tutorial](https://www.youtube.com/watch?v=mWg2udweauY), [randomize](https://stackoverflow.com/questions/1527803/generating-random-whole-numbers-in-javascript-in-a-specific-range)
-and [filter](https://www.w3schools.com/jsref/jsref_filter.asp).
->>>>>>> af8d4a4c5002a5b5d54326e088044ac40cc893fb
