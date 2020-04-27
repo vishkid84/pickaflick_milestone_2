@@ -1,6 +1,5 @@
 const searchButton = document.getElementById("search");
 const inputValue = document.getElementById("inputValue");
-const searchFilm = document.getElementById("searchMovie");
 
 
 // Search for each movie and return only if poster available
@@ -16,7 +15,7 @@ function filmSections(films) {
                     <p id="filmOverview" class="movie-overview"> ${film.overview}</p>
                     <button class="btn infoBtn" data-toggle="modal" data-target="#myModal"><i class="fa fa-info"></i></button>
                 </div>
-            </div>`
+            </div>`;
         }
     }).join('');
 }
@@ -24,13 +23,13 @@ function filmSections(films) {
 // Toggle display of movie overview on click of info button
 $(document).on('click', ".infoBtn", function() {
     $(this).siblings(".movie-overview").toggle(300);
-})
+});
 
 // Render to html
 function filmContainer(films) {
     let filmElement = document.getElementById("searchMovie");
 
-    filmContent =
+    let filmContent =
         `<div class="container filmContenContainer">
             ${filmSections(films)}
     </div>
@@ -58,9 +57,9 @@ $(searchButton).click(function() {
             inputValue.value = "";
 
             // If no movie found, return error
-            if (films == undefined || films.length == 0) {
+            if (films === undefined || films.length === 0) {
                 let emptyArray = document.getElementById("searchMovie");
-                emptyArrayTemplate =
+                let emptyArrayTemplate =
                     `<div class="container">
                         <div class="row">
                             <div class="col">
@@ -79,7 +78,7 @@ $(searchButton).click(function() {
             // Return error message if empty string is returned
             if (error) {
                 let errorElement = document.getElementById("searchMovie");
-                errorElementTemplate =
+                let errorElementTemplate =
                     `<div class="container">
                         <div class="row">
                             <div class="col">
@@ -90,5 +89,5 @@ $(searchButton).click(function() {
                 errorElement.innerHTML = "";
                 errorElement.innerHTML = errorElementTemplate;
             }
-        })
-})
+        });
+});

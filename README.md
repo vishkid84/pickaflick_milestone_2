@@ -41,18 +41,16 @@ You can see the wireframes saved as pdf below:
 
 ### Surface
 
-The website was created in an easily navigatable manner with the 4 sections separated as 4 different pages.
-The original idea was to include filter for genre and rating for the home page but the API did not have an option to return all the movies at once and 
+The website was created in an easily navigatable manner with the 4 sections separated as 4 different pages.<br>
+The original idea for 'pick a flick' page was to include filter for genre and rating for the home page but the API did not have an option to return all the movies at once and 
 choose from that. Instead returns page with an array of 20 results. So to pick a random movie, I randomized the page number. To get better results from 
 fewer number of movies, I did not include filter by rating. Instead decided to filter by average rating. From my research with friends and web, average rating 
-was considered to be 6 for most genre but horror usually seems to have lower rating. So to be fair, the average rating was concluded to be 5.5. 
-Similar results container was added for the results in all the pages. 
-A simple quiz container layout was added where right answer turns green and wrong changes to red background. The quiz question is the movie overview of a random movie
+was considered to be 6 for most genre but horror usually seems to have lower rating. So to be fair, the average rating was concluded to be 5.5. <br>
+Consistently styled movie results container was added for the results in all the pages. <br>
+For the quiz page, a simple quiz container layout was added where right answer turns green and wrong changes to red background. The quiz question is the movie overview of a random movie
 from the API, right answer shows the movie name and wrong answer returns another random movie name.
 
 ## Features
-
-The landing page opens with my background image and text with my name and role. 
 
 There are 4 sections in the navbar:
 1. Pick a flick: A page that returns a random movie which can be filtered by genre. All the movies generated would have a rating of 5.5 or more.
@@ -62,11 +60,11 @@ There are 4 sections in the navbar:
 
 ### Existing Features
 - Feature 1 - Responsive layout
-- Feature 2 - The background changes with the selection of each genre for a basic differentation and to change the mood a bit. 
+- Feature 2 - Interactive website 
 
 ### Features Left to Implement
 - For future, I plan to add a background instead of the plain color background. 
-- Currently, the site does not work IE as Fetch funcion does not work in IE. I plan to add that functionality at a later stage. 
+- Currently, the site does not work on IE as Fetch funcion does not work in IE. I plan to add that functionality at a later stage. 
 
 ## Technologies Used
 
@@ -132,5 +130,5 @@ The posters of the movies generated from The Movie Database API [https://develop
 The API used is [The Movie Database API](https://developers.themoviedb.org/3/getting-started/introduction). <br>
 I had to refer various sources sometimes to find solutions for Javascript, mainly API, TMDB and quiz tutorials in YouTube, stackoverflow for randomize and filter functions,
 w3schools for few styles and scripts.  
-Main sources are [movie database tutorial](https://www.youtube.com/watch?v=mWg2udweauY), [randomize](https://stackoverflow.com/questions/1527803/generating-random-whole-numbers-in-javascript-in-a-specific-range)
+Main sources are [Search tutorial](https://www.youtube.com/watch?v=mWg2udweauY), [randomize](https://stackoverflow.com/questions/1527803/generating-random-whole-numbers-in-javascript-in-a-specific-range)
 and [filter](https://www.w3schools.com/jsref/jsref_filter.asp).

@@ -21,7 +21,7 @@ $(document).ready(function(){
     function newArrivalContainer(arrivals) {
     let newArrivalElement = document.getElementById("newArrivals");
 
-    newArrivalContent =
+    let newArrivalContent =
         `<div class="container filmContenContainer">
             ${newArrivalSections(arrivals)}
         </div>`;

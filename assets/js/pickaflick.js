@@ -15,9 +15,8 @@ function pickaflickContainer(randomMovie) {
     let movieRating = randomMovie.vote_average;
     let movieReleaseDate = randomMovie.release_date;
     let movieOverview = randomMovie.overview;
-    // let movieGenre = randomMovie.genre_ids;
 
-    pickflickaContent =
+    let pickflickaContent =
         `<div class="container">
             <div class="row">
                 <div class="col">
@@ -55,12 +54,12 @@ $(pickflickButton).click(function() {
         })
         .then(function(data) {
 
-            genrePicker(data);
+            let randomMovie = genrePicker(data);
 
             // Return error message to try again if no movie found 
             if (randomMovie === undefined) {
                 let errorElement = document.getElementById("randomMovieResult");
-                errorElementTemplate =
+                let errorElementTemplate =
                     `<div class="container">
                         <div class="row">
                             <div class="col">
@@ -82,7 +81,7 @@ $(pickflickButton).click(function() {
 });
 
 
-function genrePicker(data) {
+function genrePicker(data, randomMovie) {
     // Filter to return movies with rating of more than 5.5
     let range = {
         min: 5.5,
@@ -129,5 +128,5 @@ function genrePicker(data) {
     } else {
         randomMovie = flicks[Math.floor(Math.random() * flicks.length)];
     }
+    return randomMovie;
 }
-
