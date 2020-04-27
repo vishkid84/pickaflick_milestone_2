@@ -130,5 +130,10 @@ The posters of the movies generated from The Movie Database API [https://develop
 The API used is [The Movie Database API](https://developers.themoviedb.org/3/getting-started/introduction). <br>
 I had to refer various sources sometimes to find solutions for Javascript, mainly API, TMDB and quiz tutorials in YouTube, stackoverflow for randomize and filter functions,
 w3schools for few styles and scripts.  
+<<<<<<< HEAD
 Main sources are [Search tutorial](https://www.youtube.com/watch?v=mWg2udweauY), [randomize](https://stackoverflow.com/questions/1527803/generating-random-whole-numbers-in-javascript-in-a-specific-range)
 and [filter](https://www.w3schools.com/jsref/jsref_filter.asp).
+=======
+Main sources are [movie database tutorial](https://www.youtube.com/watch?v=mWg2udweauY), [randomize](https://stackoverflow.com/questions/1527803/generating-random-whole-numbers-in-javascript-in-a-specific-range)
+and [filter](https://www.w3schools.com/jsref/jsref_filter.asp).
+>>>>>>> af8d4a4c5002a5b5d54326e088044ac40cc893fb
