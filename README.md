@@ -15,7 +15,7 @@ You can find the deployed site [here](https://vishkid84.github.io/pickaflick_mil
 
 ### Strategy
 
-The aim is to create an all purpose website app which interests people who spent their time watching a lot of movies. 
+The aim is to create a multi purpose website app which interests people who spend their time watching a lot of movies. 
 The main purpose of the website though is to help them pick a movie to watch, hence the site name pick-a-flick. 
 
 ### Scope
