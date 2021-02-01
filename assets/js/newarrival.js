@@ -17,6 +17,10 @@ $(document).ready(function(){
         }).join('');
     }
 
+    $(document).on('click', ".infoBtn", function() {
+    $(this).siblings(".movie-overview").toggle(300);
+});
+
     // Render to html
     function newArrivalContainer(arrivals) {
     let newArrivalElement = document.getElementById("newArrivals");
